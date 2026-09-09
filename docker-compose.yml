@@ -1,0 +1,11 @@
+services:
+  pokemon-roller:
+    image: python:3.11-slim
+    container_name: pokemon-roller
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./requirements.txt:/app/requirements.txt:ro
+      - ./app.py:/app/app.py:ro
+      - ./settings.py:/app/settings.py:ro
+    command: sh -c "pip install --no-cache-dir -r requirements.txt && python -u app.py"
