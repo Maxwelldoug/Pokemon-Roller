@@ -149,9 +149,9 @@ def roll_ability(abilities: list[dict]) -> dict:
 
 def roll_shiny() -> bool:
     """
-    Step 5: Roll 1d8192 to determine if the Pokémon is shiny.
+    Step 5: Roll 1d(shiny odds) to determine if the Pokémon is shiny.
     """
-    return roll_dice(8192) == 1
+    return roll_dice(settings.SHINYODDS) == 1
 
 
 def format_showdown(
